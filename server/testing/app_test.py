@@ -49,6 +49,7 @@ class TestApp:
         '''has a resource available at "/math/<parameters>".'''
         response = app.test_client().get('/math/5/+/5')
         assert(response.status_code == 200)
+        assert response.data.decode() == '10'
 
     def test_math_add(self):
         '''adds parameters in "/math/" resource when operation is "+".'''
